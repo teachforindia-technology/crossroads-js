@@ -5,7 +5,7 @@
   "unpkg": "./crossroads",
   "author": "Technology - Teach For India <technology@teachforindia.org>",
   "contributors": ["Gauraang <gauraang.bhartiya@teachforindia.org>"],
-  "version": "0.2.1",
+  "version": "0.2.4",
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/teachforindia/crossroads-js.git"
@@ -32,7 +32,7 @@
     "prepublish": "gulp lint"
   },
   "keywords": [],
-  "homepage": "https://api.teachforindia.org",
+  "homepage": "",
   "engines": {
     "node": ">=6.9.5"
   }
