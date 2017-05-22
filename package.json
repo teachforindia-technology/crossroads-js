@@ -1,0 +1,41 @@
+{
+  "name": "crossroads-js",
+  "description": "A js wrapper for Crossroads",
+  "main": "./crossroads",
+  "unpkg": "./crossroads",
+  "author": {
+    "name": "Technology - Teach For India"
+  },
+  "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "dependencies": {
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint-plugin-react": "^7.0.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1"
+  },
+  "scripts": {
+    "prepublish": "gulp lint"
+  },
+  "readme": "",
+  "readmeFilename": "",
+  "homepage": "",
+  "engines": {
+    "node": ">=6.9.5"
+  }
+}
