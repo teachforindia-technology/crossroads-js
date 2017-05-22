@@ -11,7 +11,7 @@ Installation
 Usage
 -----
 
-    import Crossroads from 'crossroads'
+    import Crossroads from 'crossroads-js'
     const crossroads = new Crossroads({
     	apiKey: crossroadsConfig.apiKey,
     	host: crossroadsConfig.host,
@@ -20,7 +20,7 @@ Usage
 
 or
 
-    const Crossroads = require('crossroads')
+    const Crossroads = require('crossroads-js')
     	, crossroads = new Crossroads({
     		apiKey: crossroadsConfig.apiKey,
     		host: crossroadsConfig.host,

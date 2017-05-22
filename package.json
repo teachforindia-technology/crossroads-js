@@ -3,9 +3,8 @@
   "description": "A js wrapper for Crossroads",
   "main": "./crossroads",
   "unpkg": "./crossroads",
-  "author": {
-    "name": "Technology - Teach For India"
-  },
+  "author": "Technology - Teach For India <technology@teachforindia.org>",
+  "contributors": ["Gauraang <gauraang.bhartiya@teachforindia.org>"],
   "version": "0.2.0",
   "repository": {
     "type": "git",
@@ -21,7 +20,7 @@
     }
   ],
   "dependencies": {
-    "lodash": "4.17.4"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -32,9 +31,8 @@
   "scripts": {
     "prepublish": "gulp lint"
   },
-  "readme": "",
-  "readmeFilename": "",
-  "homepage": "",
+  "keywords": [],
+  "homepage": "https://api.teachforindia.org",
   "engines": {
     "node": ">=6.9.5"
   }
