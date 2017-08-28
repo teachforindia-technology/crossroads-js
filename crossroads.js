@@ -97,7 +97,7 @@ function Crossroads (config) {
 
 	this.tokenExpiryHandler = originalParams => {
 
-		this.user.tokens()
+		return this.user.tokens()
 		.then(responseObject => {
 
 			this.accessToken = responseObject.teachPIAccessToken
@@ -304,7 +304,7 @@ function Crossroads (config) {
 
 				let options = {}
 
-				let token = params.refreshToken || self.refreshToken,
+				let token = (params && params.refreshToken) || self.refreshToken,
 					authHeader = `Basic ${new Buffer(config.apiKey+':'+token).toString('base64')}`
 
 				let localOptions = {
