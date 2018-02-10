@@ -299,7 +299,7 @@ function Crossroads (config) {
 
 			tokens: (params, callback) => {
 
-				if(!callback)
+				if(!callback && typeof params === 'function')
 					callback = params
 
 				let options = {}
