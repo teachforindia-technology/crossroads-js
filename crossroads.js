@@ -92,7 +92,6 @@ function getProtocolModule(options) {
 }
 
 function Crossroads (config) {
-
 	var majorVersion = this.majorVersion = config.majorVersion? config.majorVersion: 0
 
 	this.accessToken = config.accessToken
@@ -377,6 +376,13 @@ function Crossroads (config) {
 		const {host, port, filesAPIPath} = this.defaultOptions
 
 		const url = getProtocol({port})+'://'+host+':'+port+filesAPIPath+'?fileName='+fileName
+		const token = params.accessToken || this.accessToken,
+			authHeader = `Basic ${new Buffer(config.apiKey+':'+token).toString('base64')}`
+		const options = {
+			headers: {
+				Authorization: authHeader
+			}
+		}
 
 		function download(url) {
 			const anchor = document.createElement('a')
@@ -391,13 +397,12 @@ function Crossroads (config) {
 		}
 
 		if(typeof window === 'object') {
-			fetch(url)
+			fetch(url, options)
 			.then(response => response.blob())
 			.then(blob => URL.createObjectURL(blob))
 			.then(download)
 		}
 	}.bind(this)
-
 }
 
 util.inherits(Crossroads, EventEmitter)
