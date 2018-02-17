@@ -5,7 +5,7 @@
   "unpkg": "./crossroads",
   "author": "Technology - Teach For India <technology@teachforindia.org>",
   "contributors": ["Gauraang <gauraang.bhartiya@teachforindia.org>"],
-  "version": "0.2.6",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/teachforindia/crossroads-js.git"

@@ -20,11 +20,7 @@ const callCrossroads = function (options, body, callback) {
 	}
 
 	return new Promise(function (resolve, reject) {
-
-		let protocolModule = http
-
-		if(options.port === 443)
-			protocolModule = https
+		const protocolModule = getProtocolModule(options)
 
 		var request = protocolModule.request(options, function (response) {
 
@@ -88,6 +84,13 @@ const callCrossroads = function (options, body, callback) {
 
 }
 
+function getProtocol(options) {
+	return options.port === 443? 'https': 'http'
+}
+function getProtocolModule(options) {
+	return options.port === 443? https: http
+}
+
 function Crossroads (config) {
 
 	var majorVersion = this.majorVersion = config.majorVersion? config.majorVersion: 0
@@ -114,6 +117,7 @@ function Crossroads (config) {
 		host: config.host || defaultHost,
 		port: config.port || defaultPort,
 		basePath: '/api/v' + majorVersion,
+		filesAPIPath: '/files/v' + majorVersion,
 		method: 'GET',
 		tokenExpiryHandler: config.tokenExpiryHandler? config.tokenExpiryHandler: this.tokenExpiryHandler,
 		headers: {
@@ -366,6 +370,32 @@ function Crossroads (config) {
 
 		return callCrossroads(options, callback)
 
+	}.bind(this)
+
+	this.files = function (params) {
+		const {fileName} = params
+		const {host, port, filesAPIPath} = this.defaultOptions
+
+		const url = getProtocol({port})+'://'+host+':'+port+filesAPIPath+'?fileName='+fileName
+
+		function download(url) {
+			const anchor = document.createElement('a')
+			anchor.href = url
+			anchor.setAttribute('download', fileName)
+			anchor.style.display = 'none'
+			document.body.appendChild(anchor)
+			setTimeout(() => {
+				anchor.click()
+				document.body.removeChild(anchor)
+			}, 100)
+		}
+
+		if(typeof window === 'object') {
+			fetch(url)
+			.then(response => response.blob())
+			.then(blob => URL.createObjectURL(blob))
+			.then(download)
+		}
 	}.bind(this)
 
 }
