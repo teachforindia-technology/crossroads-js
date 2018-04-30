@@ -329,27 +329,31 @@ function Crossroads (config) {
 	})(this)
 
 	this.search = function (params, callback) {
+		const {q, context, filters} = params
+		const body = JSON.stringify({
+			q, context, filters
+		})
 
-		let query = JSON.stringify(params.q),
-			context = params.context
-
-		let options = {
+		const options = {
 			headers: {}
 		}
 
-		let localOptions = {
-			path: `${this.defaultOptions.basePath}/search?q=${query}&context=${context}`
+		const localOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Content-Length': Buffer.byteLength(body)
+			},
+			path: `${this.defaultOptions.basePath}/search`
 		}
-
 		_.merge(options, this.defaultOptions, localOptions)
 
-		let token = params.accessToken || this.accessToken,
+		const token = params.accessToken || this.accessToken,
 			authHeader = `Basic ${new Buffer(config.apiKey+':'+token).toString('base64')}`
 
 		options.headers.Authorization = authHeader
 
-		return callCrossroads(options, callback)
-
+		return callCrossroads(options, body, callback)
 	}.bind(this)
 
 	this.status = function (params, callback) {
