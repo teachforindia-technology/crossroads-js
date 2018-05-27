@@ -1,14 +1,16 @@
 {
   "name": "crossroads-js",
-  "description": "A js wrapper for Crossroads",
-  "main": "./crossroads",
-  "unpkg": "./crossroads",
-  "author": "Technology - Teach For India <technology@teachforindia.org>",
-  "contributors": ["Gauraang <gauraang.bhartiya@teachforindia.org>"],
-  "version": "0.3.2",
+  "description": "A js wrapper to call the Crossroads api",
+  "main": "dist/crossroads",
+  "unpkg": "dist/crossroads",
+  "author": "Technology - Teach For India <gauraang.bhartiya@teachforindia.org>",
+  "contributors": [
+    "Gauraang <gauraang.bhartiya@teachforindia.org>"
+  ],
+  "version": "0.4.0",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/teachforindia/crossroads-js.git"
+    "url": ""
   },
   "bugs": {
     "url": ""
@@ -23,13 +25,18 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.7.0",
+    "dry-roads": "0.0.4",
     "eslint-plugin-react": "^7.0.1",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1"
+    "gulp-babel": "^7.0.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-uglify": "^3.0.0"
   },
   "scripts": {
-    "prepublish": "gulp lint"
+    "prepublishOnly": "gulp publish"
   },
   "keywords": [],
   "homepage": "",
