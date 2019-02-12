@@ -7,7 +7,7 @@
   "contributors": [
     "Gauraang <gauraang.bhartiya@teachforindia.org>"
   ],
-  "version": "0.4.0",
+  "version": "0.4.2",
   "repository": {
     "type": "git",
     "url": ""
@@ -22,7 +22,7 @@
     }
   ],
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

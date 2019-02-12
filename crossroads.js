@@ -146,7 +146,7 @@ function Crossroads (config) {
 		if(params.params) {
 			path += '?'
 			_.forEach(params.params, (value, key) => {
-				queryParams += `&${key}=${value}`
+				queryParams += `&${key}=${encodeURIComponent(value)}`
 			})
 			path += queryParams
 		}
